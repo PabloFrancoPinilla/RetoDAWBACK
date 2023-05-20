@@ -24,9 +24,17 @@ public class Clienteservice {
         return listaCliente;
     }
     
+    public List<Cliente> BuscarClientePorCorreo(Set<String> correo) {
+        List<Cliente> listaCliente = ClienteRepo.getClientePorCorreo(correo);
+        return listaCliente;
+    }
+
     public void CrearCliente(String nombre,String apellido, String correo, String telefono) {
        ClienteRepo.crearClienteQuery(nombre,apellido,correo,telefono);
     }
+    public void CrearClienteLogin(String correo, String contraseña) {
+        ClienteRepo.crearClienteLoginQuery(correo,contraseña);
+     }
 
     public void ModificarClienteNombreValor(Integer id, String nombre) {
         ClienteRepo.modificarClienteNombrePorId(id, nombre);

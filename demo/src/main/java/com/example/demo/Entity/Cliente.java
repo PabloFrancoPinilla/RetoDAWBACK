@@ -28,13 +28,18 @@ public class Cliente {
     @JsonProperty("telefono")
     private String telefono;
 
+    @Column(name = "contraseña")
+    @JsonProperty("contraseña")
+    private String contraseña;
+
     public Cliente(int id_cliente, String nombre_cliente, String apellido_cliente, String correo_electronico,
-            String telefono) {
+            String telefono, String contraseña) {
         this.id_cliente = id_cliente;
         this.nombre_cliente = nombre_cliente;
         this.apellido_cliente = apellido_cliente;
         this.correo_electronico = correo_electronico;
         this.telefono = telefono;
+        this.contraseña= contraseña;
     }
 
     public Cliente() {
@@ -78,6 +83,14 @@ public class Cliente {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
     
 }

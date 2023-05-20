@@ -25,12 +25,23 @@ public interface ClienteRepo extends CrudRepository <Cliente, Integer> {
     @Query(nativeQuery = true, value = getBuscarClienteQuery)
     List<Cliente> getClientePorId(Set<Integer> id);
 
+    String getBuscarClienteLoginQuery = "SELECT * FROM cliente WHERE correo_electronico= :correo";
+
+    @Query(nativeQuery = true, value = getBuscarClienteLoginQuery)
+    List<Cliente> getClientePorCorreo(Set<String> correo);
+
     //crear
     String crearClienteQuery = "INSERT INTO cliente  (nombre_cliente,apellido_cliente,correo_electronico,telefono) VALUES (:nombre,:apellido,:correo,:telefono)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearClienteQuery)
     void crearClienteQuery(String nombre,String apellido, String correo, String telefono);
+
+    String crearClienteLoginQuery = "INSERT INTO cliente  (correo_electronico,contraseña) VALUES (:correo,:contraseña)";
+
+    @Modifying
+    @Query(nativeQuery = true, value = crearClienteLoginQuery)
+    void crearClienteLoginQuery( String correo, String contraseña);
 
     //modificar nombre
     String modificarClienteNombreQuery = "UPDATE cliente  SET nombre_cliente = :nombre WHERE cliente.id_cliente = :id";
