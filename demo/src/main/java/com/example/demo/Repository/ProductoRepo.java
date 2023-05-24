@@ -39,7 +39,7 @@ public interface ProductoRepo extends CrudRepository<Producto, Integer> {
     void modificarProductoNombrePorId(Integer id, String nombre);
 
     //borrar
-    String borrarProductoQuery = "DELETE FROM producto  WHERE id_producto = :id";
+    String borrarProductoQuery = "DELETE FROM producto WHERE id_producto = :id";
 
     @Modifying
     @Query(nativeQuery = true, value = borrarProductoQuery)

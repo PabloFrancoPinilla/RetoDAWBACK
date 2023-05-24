@@ -46,4 +46,5 @@ public class Productocontroller {
     public void eliminarProductoQuery(@RequestBody Producto Producto) {
         impl.EliminarProducto(Producto.getId_producto());
     }
+
 }
