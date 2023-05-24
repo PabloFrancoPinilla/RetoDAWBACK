@@ -25,11 +25,11 @@ public interface ProductoRepo extends CrudRepository<Producto, Integer> {
     List<Producto> getProductoPorId(Set<Integer> id);
 
     //crear
-    String crearProductoQuery = "INSERT INTO producto  (nombre_prod,descripcion,precio,categoria) VALUES (:nombre,:desc,:precio,:categoria)";
+    String crearProductoQuery = "INSERT INTO producto  (nombre_prod,descripcion,precio,categoria,photo) VALUES (:nombre,:desc,:precio,:categoria,:foto)";
 
     @Modifying
     @Query(nativeQuery = true, value = crearProductoQuery)
-    void crearProducto(String nombre,String desc, Double precio, String categoria);
+    void crearProducto(String nombre,String desc, Double precio, String categoria, String foto);
 
     //modificar
     String modificarProductoNombreQuery = "UPDATE producto  SET nombre_prod = :nombre WHERE producto.id_producto = :id";

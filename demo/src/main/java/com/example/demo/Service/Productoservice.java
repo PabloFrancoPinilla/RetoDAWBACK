@@ -24,8 +24,8 @@ public class Productoservice {
         return listaProducto;
     }
     
-    public void CrearProducto(String nombre,String desc, Double precio, String categoria) {
-        ProductoRepo.crearProducto(nombre,desc,precio,categoria);
+    public void CrearProducto(String nombre,String desc, Double precio, String categoria, String foto) {
+        ProductoRepo.crearProducto(nombre,desc,precio,categoria, foto);
     }
 
     public void ModificarProductoValor(Integer id, String nombre) {

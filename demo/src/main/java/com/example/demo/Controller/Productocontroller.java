@@ -31,7 +31,7 @@ public class Productocontroller {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/producto/crear")
     public void crearProductoQuery(@RequestBody Producto Producto){
-        impl.CrearProducto( Producto.getNombre_prod(),Producto.getDescripcion(),Producto.getPrecio(),Producto.getCategoria());
+        impl.CrearProducto( Producto.getNombre_prod(),Producto.getDescripcion(),Producto.getPrecio(),Producto.getCategoria(),Producto.getPhoto());
 
     }
 

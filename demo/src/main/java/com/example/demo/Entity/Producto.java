@@ -33,14 +33,20 @@ import jakarta.persistence.*;
         @JsonProperty("categoria")
         private String categoria;
 
-        public Producto(int id_producto, String nombre_prod, String descripcion, double precio, String categoria) {
+        @Column(name = "photo")
+        @JsonProperty("photo")
+        private String photo;
+
+        public Producto(int id_producto, String nombre_prod, String descripcion, double precio, String categoria, String photo) {
             this.id_producto = id_producto;
             this.nombre_prod = nombre_prod;
             this.descripcion = descripcion;
             this.precio = precio;
             this.categoria = categoria;
+            this.photo = photo;
 
         }
+        
         public Producto(){
 
         }
@@ -84,5 +90,11 @@ import jakarta.persistence.*;
             this.categoria = categoria;
         }
         
+        public String getPhoto() {
+            return photo;
+        }
+        public void setPhoto(String photo) {
+            this.photo = photo;
+        }
     }
 
