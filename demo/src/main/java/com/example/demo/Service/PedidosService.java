@@ -22,9 +22,13 @@ public class PedidosService {
         List<Pedidos> listaPedidos = PedidosRepo.getPedidosPorId(id);
         return listaPedidos;
     }
+    public List<Pedidos> BuscarPedidosUser(Set<Integer> id) {
+        List<Pedidos> listaPedidos = PedidosRepo.getPedidosPorUser(id);
+        return listaPedidos;
+    }
     
-    public void CrearPedidos(Integer id_producto,Integer id_ubicacion,Integer id_cliente, Integer id_empleado,String fecha_hora,String tipo_pedido,String metodo_pago,String estado_pedido) {
-       PedidosRepo.crearPedidosQuery(id_producto,id_ubicacion,id_cliente, id_empleado,fecha_hora,tipo_pedido, metodo_pago, estado_pedido);
+    public void CrearPedidos(Integer id_cliente,String metodo_pago) {
+       PedidosRepo.crearPedidosQuery(id_cliente,  metodo_pago );
     }
 
     public void ModificarPedidosEstadoValor(Integer id, String estado_pedido) {

@@ -1,7 +1,5 @@
 package com.example.demo.Repository;
-
 import com.example.demo.Entity.Pedidos;
-
 import jakarta.transaction.Transactional;
 
 import java.util.List;
@@ -24,13 +22,18 @@ public interface PedidosRepo extends CrudRepository<Pedidos, Integer>{
  
      @Query(nativeQuery = true, value = getBuscarPedidosQuery)
      List<Pedidos> getPedidosPorId(Set<Integer> id);
+
+     String getBuscarPedidosUserQuery = "SELECT * FROM pedidos WHERE id_cliente = :id";
+ 
+     @Query(nativeQuery = true, value = getBuscarPedidosUserQuery)
+     List<Pedidos> getPedidosPorUser(Set<Integer> id);
  
      //crear
-     String crearPedidosQuery = "INSERT INTO pedidos  (id_producto,id_ubicacion,id_cliente,id_empleado,fecha_hora,tipo_pedido,metodo_pago, estado_pedido) VALUES (:id_producto,:id_ubicacion,:id_cliente,:id_empleado,:fecha_hora,:tipo_pedido,:metodo_pago,:estado_pedido)";
+     String crearPedidosQuery = "INSERT INTO pedidos  (id_cliente,metodo_pago) VALUES (:id_cliente,:metodo_pago)";
  
      @Modifying
      @Query(nativeQuery = true, value = crearPedidosQuery)
-     void crearPedidosQuery(Integer id_producto,Integer id_ubicacion,Integer id_cliente,Integer id_empleado, String fecha_hora,String tipo_pedido,String metodo_pago,String estado_pedido);
+     void crearPedidosQuery(Integer id_cliente, String metodo_pago);
  
      //modificar
      String modificarPedidosEstadoQuery = "UPDATE pedidos  SET estado_pedido = :estado_pedido WHERE pedidos.id_pedido = :id_pedido";

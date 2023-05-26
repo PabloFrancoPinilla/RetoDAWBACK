@@ -26,18 +26,23 @@ public class Pedidoscontroller {
     public List<Pedidos> buscarPedidosQuery(@RequestParam(value = "id") Set<Integer> id) {
         return impl.BuscarPedidos(id);
     }
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @GetMapping("/pedidos/buscar/user")
+    public List<Pedidos> buscarPedidosUserQuery(@RequestParam(value = "id") Set<Integer> id) {
+        return impl.BuscarPedidosUser(id);
+    }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/pedidos/crear")
     public void crearPedidosQuery(@RequestBody Pedidos Pedidos){
-        impl.CrearPedidos(Pedidos.getId_producto(),Pedidos.getId_ubiacion(),Pedidos.getId_cliente(),Pedidos.getId_empleado(),Pedidos.getFecha_hora(),Pedidos.getTipo_pedido(),Pedidos.getMetodo_pago(),Pedidos.getEstado_pedido());
+        impl.CrearPedidos(Pedidos.getId_cliente(),Pedidos.getMetodo_pago());
 
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PutMapping("/pedidos/modificar")
     public void modificarPedidosEstadoQuery(@RequestBody Pedidos Pedidos) {
-        impl.ModificarPedidosEstadoValor(Pedidos.getId_pedido(), Pedidos.getEstado_pedido());
+        impl.ModificarPedidosEstadoValor(Pedidos.getId_pedido(), Pedidos.getMetodo_pago());
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:5500")
