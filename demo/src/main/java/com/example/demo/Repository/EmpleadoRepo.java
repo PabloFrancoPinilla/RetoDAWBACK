@@ -24,13 +24,19 @@ public interface EmpleadoRepo extends CrudRepository<Empleado, Integer>{
   
       @Query(nativeQuery = true, value = getBuscarEmpleadoQuery)
       List<Empleado> getEmpleadoPorId(Set<Integer> id);
+
+      //buscar
+      String getBuscarEmpleadoCorreoQuery = "SELECT * FROM empleado WHERE correo_electronico = :correo";
+  
+      @Query(nativeQuery = true, value = getBuscarEmpleadoCorreoQuery)
+      List<Empleado> getEmpleadoPorCorreo(Set<String> correo);
   
       //crear
-      String crearEmpleadoQuery = "INSERT INTO empleado  (id_ubicacion,nombre_empl,apellido_empl,fe_nacimiento,direccion,correo_electronico, puesto,fe_contratacion,salario) VALUES (:id_ubicacion,:nombre_empl,:apellido_empl,:fe_nacimiento,:direccion,:correo_electronico,:puesto,:fe_contratacion,:salario)";
+      String crearEmpleadoQuery = "INSERT INTO empleado  (id_ubicacion,nombre_empl,apellido_empl,fe_nacimiento,direccion,correo_electronico, puesto,fe_contratacion,salario,contraseña) VALUES (:id_ubicacion,:nombre_empl,:apellido_empl,:fe_nacimiento,:direccion,:correo_electronico,:puesto,:fe_contratacion,:salario,:contraseña)";
   
       @Modifying
       @Query(nativeQuery = true, value = crearEmpleadoQuery)
-      void crearEmpleadoQuery(Integer id_ubicacion,String nombre_empl,String apellido_empl, Date fe_nacimiento,String direccion,String correo_electronico,String puesto,Date fe_contratacion,Double salario);
+      void crearEmpleadoQuery(Integer id_ubicacion,String nombre_empl,String apellido_empl, Date fe_nacimiento,String direccion,String correo_electronico,String puesto,Date fe_contratacion,Double salario,String contraseña);
   
       //modificar
       String modificarEmpleadoNombreQuery = "UPDATE empleado  SET nombre_empl = :nombre_empl WHERE empleado.id_empleado = :id_empleado";

@@ -49,21 +49,11 @@ public class Empleado {
     @Column(name = "salario")
     @JsonProperty("salario")
     private Double salario;
+    @Column(name = "contraseña")
+    @JsonProperty("contraseña")
+    private String contraseña;
 
-    public Empleado(int id_empleado, Integer id_ubicacion, String nombre_empl, String apellido_empl,
-            Date fe_nacimiento, String direccion, String correo_electronico, String puesto, Date fe_contratacion,
-            Double salario) {
-        this.id_empleado = id_empleado;
-        this.id_ubicacion = id_ubicacion;
-        this.nombre_empl = nombre_empl;
-        this.apellido_empl = apellido_empl;
-        this.fe_nacimiento = fe_nacimiento;
-        this.direccion = direccion;
-        this.correo_electronico = correo_electronico;
-        this.puesto = puesto;
-        this.fe_contratacion = fe_contratacion;
-        this.salario = salario;
-    }
+   
 
     public Empleado() {
     }
@@ -146,6 +136,30 @@ public class Empleado {
 
     public void setSalario(Double salario) {
         this.salario = salario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public Empleado(int id_empleado, Integer id_ubicacion, String nombre_empl, String apellido_empl, Date fe_nacimiento,
+            String direccion, String correo_electronico, String puesto, Date fe_contratacion, Double salario,
+            String contraseña) {
+        this.id_empleado = id_empleado;
+        this.id_ubicacion = id_ubicacion;
+        this.nombre_empl = nombre_empl;
+        this.apellido_empl = apellido_empl;
+        this.fe_nacimiento = fe_nacimiento;
+        this.direccion = direccion;
+        this.correo_electronico = correo_electronico;
+        this.puesto = puesto;
+        this.fe_contratacion = fe_contratacion;
+        this.salario = salario;
+        this.contraseña = contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
 

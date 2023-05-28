@@ -24,9 +24,14 @@ public class Empleadoservice {
         List<Empleado> listaEmpleado = EmpleadoRepo.getEmpleadoPorId(id);
         return listaEmpleado;
     }
+
+    public List<Empleado> BuscarEmpleadoCorreo(Set<String> correo) {
+        List<Empleado> listaEmpleado = EmpleadoRepo.getEmpleadoPorCorreo(correo);
+        return listaEmpleado;
+    }
     
-    public void CrearEmpleado(Integer id_ubicacion,String nombre_empl,String apellido_empl, Date fe_nacimiento,String direccion,String correo_electronico,String puesto,Date fe_contratacion,Double salario) {
-       EmpleadoRepo.crearEmpleadoQuery(id_ubicacion,nombre_empl,apellido_empl,fe_nacimiento,direccion,correo_electronico, puesto,fe_contratacion,salario);
+    public void CrearEmpleado(Integer id_ubicacion,String nombre_empl,String apellido_empl, Date fe_nacimiento,String direccion,String correo_electronico,String puesto,Date fe_contratacion,Double salario, String correo) {
+       EmpleadoRepo.crearEmpleadoQuery(id_ubicacion,nombre_empl,apellido_empl,fe_nacimiento,direccion,correo_electronico, puesto,fe_contratacion,salario,correo);
     }
 
     public void ModificarEmpleadoNombreValor(Integer id, String nombre) {
