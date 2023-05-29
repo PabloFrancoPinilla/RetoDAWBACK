@@ -27,9 +27,14 @@ public class PedidosService {
         return listaPedidos;
     }
     
-    public void CrearPedidos(Integer id_cliente,String metodo_pago) {
-       PedidosRepo.crearPedidosQuery(id_cliente,  metodo_pago );
+    public void CrearPedidos(Integer id_ubicacion,Integer id_cliente,Integer id_empleado, String metodo_pago) {
+       PedidosRepo.crearPedidosQuery(id_ubicacion,id_cliente,id_empleado, metodo_pago );
     }
+
+    public void CrearPedidosUser(Integer id_cliente, String metodo_pago) {
+        PedidosRepo.crearPedidosUserQuery(id_cliente, metodo_pago );
+     }
+ 
 
     public void ModificarPedidosEstadoValor(Integer id, String estado_pedido) {
         PedidosRepo.modificarPedidosEstadoPorId(id, estado_pedido);

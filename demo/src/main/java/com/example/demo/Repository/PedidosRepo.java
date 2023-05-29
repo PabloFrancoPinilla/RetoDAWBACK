@@ -29,11 +29,18 @@ public interface PedidosRepo extends CrudRepository<Pedidos, Integer>{
      List<Pedidos> getPedidosPorUser(Set<Integer> id);
  
      //crear
-     String crearPedidosQuery = "INSERT INTO pedidos  (id_cliente,metodo_pago) VALUES (:id_cliente,:metodo_pago)";
+     String crearPedidosQuery = "INSERT INTO pedidos  (id_ubicacion,id_cliente,id_empleado,metodo_pago) VALUES (:id_ubicacion,:id_cliente,:id_empleado,:metodo_pago)";
  
      @Modifying
      @Query(nativeQuery = true, value = crearPedidosQuery)
-     void crearPedidosQuery(Integer id_cliente, String metodo_pago);
+     void crearPedidosQuery(Integer id_ubicacion,Integer id_cliente,Integer id_empleado, String metodo_pago);
+
+     String crearPedidosUserQuery = "INSERT INTO pedidos  (id_cliente,metodo_pago) VALUES (:id_cliente,:metodo_pago)";
+ 
+     @Modifying
+     @Query(nativeQuery = true, value = crearPedidosUserQuery)
+     void crearPedidosUserQuery(Integer id_cliente, String metodo_pago);
+ 
  
      //modificar
      String modificarPedidosEstadoQuery = "UPDATE pedidos  SET estado_pedido = :estado_pedido WHERE pedidos.id_pedido = :id_pedido";

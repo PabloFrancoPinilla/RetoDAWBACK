@@ -35,7 +35,13 @@ public class Pedidoscontroller {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/pedidos/crear")
     public void crearPedidosQuery(@RequestBody Pedidos Pedidos){
-        impl.CrearPedidos(Pedidos.getId_cliente(),Pedidos.getMetodo_pago());
+        impl.CrearPedidos(Pedidos.getId_ubicacion(),Pedidos.getId_cliente(),Pedidos.getId_empleado(),Pedidos.getMetodo_pago());
+
+    }
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
+    @PostMapping("/pedidosUser/crear")
+    public void crearPedidosUserQuery(@RequestBody Pedidos Pedidos){
+        impl.CrearPedidosUser(Pedidos.getId_cliente(),Pedidos.getMetodo_pago());
 
     }
 

@@ -13,23 +13,37 @@ public class Pedidos {
     private int id_pedido;
 
 
-
+    @Column(name = "id_ubicacion")
+    @JsonProperty("id_ubicacion")
+    private Integer id_ubicacion;
 
     @Column(name = "id_cliente")
     @JsonProperty("id_cliente")
     private Integer id_cliente;
-
+    
+    @Column(name = "id_empleado")
+    @JsonProperty("id_empleado")
+    private Integer id_empleado;
   
     @Column(name = "metodo_pago")
     @JsonProperty("metodo_pago")
     private String metodo_pago;
 
+    
+
+    
+
    
 
-    public Pedidos(int id_pedido, Integer id_ubiacion, Integer id_cliente, Integer id_empleado,
-            String fecha_hora, String tipo_pedido, String metodo_pago, String estado_pedido) {
+   
+
+    
+
+    public Pedidos(int id_pedido, Integer id_ubicacion, Integer id_cliente, Integer id_empleado, String metodo_pago) {
         this.id_pedido = id_pedido;
+        this.id_ubicacion = id_ubicacion;
         this.id_cliente = id_cliente;
+        this.id_empleado = id_empleado;
         this.metodo_pago = metodo_pago;
     }
 
@@ -62,6 +76,24 @@ public class Pedidos {
     public void setMetodo_pago(String metodo_pago) {
         this.metodo_pago = metodo_pago;
     }
+
+    public Integer getId_ubicacion() {
+        return id_ubicacion;
+    }
+
+    public void setId_ubicacion(Integer id_ubicacion) {
+        this.id_ubicacion = id_ubicacion;
+    }
+
+    public Integer getId_empleado() {
+        return id_empleado;
+    }
+
+    public void setId_empleado(Integer id_empleado) {
+        this.id_empleado = id_empleado;
+    }
+
+    
 
    
 
