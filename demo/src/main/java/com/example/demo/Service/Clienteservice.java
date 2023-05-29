@@ -32,8 +32,8 @@ public class Clienteservice {
     public void CrearCliente(String nombre,String apellido, String correo, String telefono) {
        ClienteRepo.crearClienteQuery(nombre,apellido,correo,telefono);
     }
-    public void CrearClienteLogin(String correo, String contraseña) {
-        ClienteRepo.crearClienteLoginQuery(correo,contraseña);
+    public void CrearClienteLogin( String nombre, String apellido, String correo, String contraseña) {
+        ClienteRepo.crearClienteLoginQuery(nombre, apellido, correo,contraseña);
      }
 
     public void ModificarClienteNombreValor(Integer id, String nombre) {

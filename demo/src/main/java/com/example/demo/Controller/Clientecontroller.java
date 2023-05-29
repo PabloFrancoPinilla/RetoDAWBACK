@@ -45,7 +45,7 @@ public class Clientecontroller {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/cliente/crearLogin")
     public void crearClienteLoginQuery(@RequestBody Cliente Cliente){
-        impl.CrearClienteLogin(Cliente.getCorreo_electronico(),Cliente.getContraseña());
+        impl.CrearClienteLogin(Cliente.getNombre_cliente(),Cliente.getApellido_cliente(), Cliente.getCorreo_electronico(),Cliente.getContraseña());
 
     }
 
